@@ -13,6 +13,7 @@ Short, focused talks — 5 to 15 minutes.
 | Talk | Description | Stack |
 |------|-------------|-------|
 | [Middlewares in ASP.NET Core](lightning/Middlewares%20in%20ASP.NET%20Core/presentation.md) | How the request pipeline works, `Use`/`Run`/`Map` delegates, writing custom middleware, and ordering pitfalls | .NET / C# |
+| [Iterating in C#](lightning/Iterating%20in%20C%23/presentation.md) | All the ways to loop in C# — `for`, `foreach`, LINQ, `Span<T>`, `await foreach`, parallel, and custom iterators | .NET / C# |
 
 ---
 
