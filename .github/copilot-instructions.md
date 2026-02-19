@@ -121,9 +121,15 @@ When asked to create a new talk, follow these steps:
    ```
 3. **Write a `README.md`** for the talk with a brief title, description, topic list, and instructions to run the demo
 4. **Write `presentation.md`** following the structure and style above
-4. **Create the demo project** using `dotnet new` (or equivalent for the target stack)
+5. **Create the demo project** using `dotnet new` (or equivalent for the target stack)
 6. **Ensure the demo compiles and runs** before considering the talk complete
 7. **Update the root `README.md`** — add the new talk to the list
+8. **Review all generated content** — re-read the presentation, README, and demo code to verify:
+   - All technical claims, API names, and code samples are **accurate and up-to-date**
+   - Code examples **compile and behave as described**
+   - There are no **factual errors, outdated syntax, or misleading statements**
+   - Slide ordering and agenda match the actual content
+   - Links and references point to valid resources
 
 ---
 
