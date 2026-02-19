@@ -1,0 +1,54 @@
+@MiddlewareDemo_HostAddress = http://localhost:5277
+
+### Welcome page
+GET {{MiddlewareDemo_HostAddress}}/
+
+###
+
+### Weather forecast (public endpoint)
+GET {{MiddlewareDemo_HostAddress}}/weatherforecast
+Accept: application/json
+
+###
+
+### Weather forecast with custom correlation ID
+GET {{MiddlewareDemo_HostAddress}}/weatherforecast
+Accept: application/json
+X-Correlation-Id: my-trace-123
+
+###
+
+### Secure data – WITHOUT API key (expect 401)
+GET {{MiddlewareDemo_HostAddress}}/secure/data
+Accept: application/json
+
+###
+
+### Secure data – WITH valid API key (expect 200)
+GET {{MiddlewareDemo_HostAddress}}/secure/data
+Accept: application/json
+X-Api-Key: demo-secret-key-12345
+
+###
+
+### Secure data – WITH invalid API key (expect 401)
+GET {{MiddlewareDemo_HostAddress}}/secure/data
+Accept: application/json
+X-Api-Key: wrong-key
+
+###
+
+### Throw exception (demonstrates GlobalExceptionMiddleware)
+GET {{MiddlewareDemo_HostAddress}}/throw
+
+###
+
+### Health check (branched pipeline with Map)
+GET {{MiddlewareDemo_HostAddress}}/health
+
+###
+
+### Terminal middleware (pipeline stops here)
+GET {{MiddlewareDemo_HostAddress}}/terminal
+
+###
