@@ -131,6 +131,51 @@ The root `README.md` should list all talks with links. When adding a new talk, a
 
 ---
 
+## Git Commits
+
+All commits **must** follow the [Conventional Commits](https://www.conventionalcommits.org/) specification.
+
+### Format
+
+```
+<type>(<optional scope>): <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+### Allowed Types
+
+| Type       | When to use                                      |
+|------------|--------------------------------------------------|
+| `feat`     | A new talk, presentation, or demo                |
+| `fix`      | Bug fix in a demo or correction in a presentation|
+| `docs`     | Documentation-only changes (README, instructions)|
+| `style`    | Formatting, whitespace, missing semicolons, etc. |
+| `refactor` | Code restructuring without behavior change       |
+| `chore`    | Maintenance tasks, CI, tooling, dependencies     |
+
+### Rules
+
+- **Commits must be atomic** — each commit should contain exactly one logical change (e.g., don't mix a new demo with a README update in the same commit)
+- **Type is required** — never commit without a type prefix
+- **Use lowercase** for type and description
+- **Use imperative mood** in the description (e.g., "add", not "added" or "adds")
+- **Scope is optional** but encouraged — use the talk name or category (e.g., `feat(middlewares): add ordering demo`)
+- **Breaking changes** must include `BREAKING CHANGE:` in the footer or `!` after the type/scope
+
+### Examples
+
+```
+feat(middlewares): add custom middleware demo project
+fix(middlewares): correct middleware ordering in pipeline
+docs: update README with new talk listing
+chore: add gitignore rules for build output
+```
+
+---
+
 ## Non-.NET Talks
 
 If a talk covers a different technology (TypeScript, Python, Go, etc.), adapt the demo conventions accordingly:
