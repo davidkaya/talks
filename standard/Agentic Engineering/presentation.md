@@ -159,13 +159,8 @@ their efforts.
 At their core, AI agents follow a **Perceive → Plan → Act → Reflect** loop:
 
 ```mermaid
-flowchart TD
-    P["🔍 Perceive<br>Context, tools, user input"]
-    PL["📋 Plan<br>Decompose goals into steps"]
-    A["⚡ Act<br>Execute tools, generate output"]
-    R["🔁 Reflect<br>Evaluate results, improve"]
-
-    P --> PL --> A --> R
+flowchart LR
+    P["🔍 Perceive"] --> PL["📋 Plan"] --> A["⚡ Act"] --> R["🔁 Reflect"]
     R -. loop .-> P
 ```
 
