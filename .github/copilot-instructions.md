@@ -5,6 +5,16 @@ these instructions when helping prepare new talks, presentations, or demos.
 
 ---
 
+## ⚠️ General Rules
+
+> **IMPORTANT — you MUST follow these rules for every task, no exceptions.**
+
+- **Always commit your changes before marking a task as complete.** Never leave uncommitted work. If
+  a task produces file changes, `git add` and `git commit` before calling `task_complete`.
+- **Always format Markdown files** before committing — run `bun run format` (Prettier).
+
+---
+
 ## Repository Structure
 
 Talks are organized by **category**, then by **talk name**:
