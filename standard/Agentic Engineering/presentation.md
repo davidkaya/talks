@@ -96,6 +96,8 @@ flowchart LR
 > [Morph LLM — "The 2026 Paradigm Shift"](https://www.morphllm.com/blog/vibe-coding-to-agentic-engineering)
 
 ---
+layout: section
+---
 
 ## 3. The Four Agentic Design Patterns
 
@@ -224,6 +226,8 @@ Unlike traditional autocomplete, these tools can:
 > [aiagents.bot — "Best AI Coding Assistants"](https://aiagents.bot/blog/best-ai-coding-assistants-2025)
 
 ---
+layout: section
+---
 
 ## 6. Agentic Frameworks for Developers
 
@@ -277,6 +281,8 @@ Four major frameworks dominate the agentic AI space.
 > [arxiv — "Agentic AI Frameworks: Architectures, Protocols"](https://arxiv.org/html/2508.10146v1) ·
 > [mem0.ai — "Agentic Frameworks Guide"](https://mem0.ai/blog/agentic-frameworks-ai-agents)
 
+---
+layout: section
 ---
 
 ## 7. The Protocols: MCP and A2A
