@@ -21,14 +21,80 @@ Talks are organized by **category**, then by **talk name**:
 | Folder       | Description                              | Typical duration |
 |--------------|------------------------------------------|------------------|
 | `lightning/` | Lightning talks — short, focused, punchy | 5–15 minutes     |
+| `standard/`  | Standard talks — deeper, more thorough   | 30–45 minutes    |
 
 When new categories are needed (e.g., `conference/`, `workshop/`, `meetup/`), follow the same nested structure.
 
 ---
 
+## Tooling
+
+| Tool | Purpose |
+|------|---------|
+| [Bun](https://bun.sh) | JavaScript package manager and runtime — use `bun install`, `bun run <script>` |
+| [Slidev](https://sli.dev) | Markdown-to-slides presentation framework |
+| [.NET SDK](https://dotnet.microsoft.com) | Build and run demo projects |
+
+> ⚠️ Always use **bun** (not npm/yarn/pnpm) for managing JavaScript dependencies in this repository.
+
+---
+
 ## Presentations (`presentation.md`)
 
-All presentations are written in **Markdown** designed for tools like [Marp](https://marp.app), [Slidev](https://sli.dev), or similar Markdown-to-slides renderers.
+All presentations are written in **Markdown** for [Slidev](https://sli.dev), a developer-friendly, Markdown-based presentation framework.
+
+### Slidev Frontmatter
+
+Every `presentation.md` **must** start with a YAML frontmatter block configuring Slidev:
+
+```yaml
+---
+theme: default
+title: Talk Title
+info: |
+  A brief description of the talk.
+highlighter: shiki
+transition: slide-left
+---
+```
+
+Required frontmatter fields:
+
+| Field | Value | Purpose |
+|-------|-------|---------|
+| `theme` | `default` (or another installed theme) | Slidev theme |
+| `title` | The talk title | Browser tab title and metadata |
+| `info` | Multi-line description | Talk description shown in presenter view |
+| `highlighter` | `shiki` | Syntax highlighter for code blocks |
+| `transition` | `slide-left` | Default slide transition |
+
+### Slide Separators
+
+- Use `---` (horizontal rules) to separate slides
+- The first `---` block is the YAML frontmatter; subsequent `---` lines are slide separators
+- You can add per-slide frontmatter between `---` markers:
+
+```markdown
+---
+layout: center
+---
+
+# Centered Slide Title
+```
+
+### Available Layouts
+
+Use Slidev layouts for visual variety (set via per-slide frontmatter):
+
+| Layout | Use for |
+|--------|---------|
+| `default` | Standard content slides |
+| `cover` | Title/opening slides |
+| `center` | Centered content (quotes, key insights) |
+| `two-cols` | Side-by-side comparisons |
+| `image-right` | Content with image on right |
+| `section` | Section divider slides |
+| `end` | Closing slide |
 
 ### Structure
 
@@ -110,7 +176,7 @@ Since demos are educational, comments should be more verbose than production cod
 
 When asked to create a new talk, follow these steps:
 
-1. **Determine the category** — ask if unsure (lightning, conference, workshop, etc.)
+1. **Determine the category** — ask if unsure (lightning, standard, conference, workshop, etc.)
 2. **Create the folder structure**:
    ```
    <category>/<Talk Name>/
@@ -120,11 +186,12 @@ When asked to create a new talk, follow these steps:
        <ProjectName>/
    ```
 3. **Write a `README.md`** for the talk with a brief title, description, topic list, and instructions to run the demo
-4. **Write `presentation.md`** following the structure and style above
+4. **Write `presentation.md`** with Slidev YAML frontmatter at the top, following the structure and style above
 5. **Create the demo project** using `dotnet new` (or equivalent for the target stack)
 6. **Ensure the demo compiles and runs** before considering the talk complete
-7. **Update the root `README.md`** — add the new talk to the list
-8. **Review all generated content** — re-read the presentation, README, and demo code to verify:
+7. **Update the root `README.md`** — add the new talk to the appropriate category table
+8. **Update `package.json`** — add `slides:<name>`, `build:<name>`, and `export:<name>` scripts for the new talk, then run `bun install`
+9. **Review all generated content** — re-read the presentation, README, and demo code to verify:
    - All technical claims, API names, and code samples are **accurate and up-to-date**
    - Code examples **compile and behave as described**
    - There are no **factual errors, outdated syntax, or misleading statements**
