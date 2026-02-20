@@ -1,0 +1,11 @@
+{
+  "lspServers": {
+    "markdown": {
+      "command": "prettier-lsp",
+      "args": ["--stdio"],
+      "fileExtensions": {
+        ".md": "markdown"
+      }
+    }
+  }
+}
