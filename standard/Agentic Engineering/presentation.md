@@ -446,10 +446,10 @@ The role of a software developer is **not disappearing** — it's **evolving**:
 ```mermaid
 flowchart LR
     subgraph Before
-        B1["Developer<br>writes code<br>runs tests<br>debugs<br>deploys"]
+        B1["Developer<br>writes code, runs tests,<br>debugs, deploys"]
     end
     subgraph Now
-        N1["Developer<br>defines goals<br>designs workflows<br>reviews agent output<br>validates quality"]
+        N1["Developer<br>defines goals, designs workflows,<br>reviews output, validates quality"]
     end
     Before --> Now
 ```
@@ -482,14 +482,11 @@ flowchart LR
 A .NET console application demonstrating the **Multi-Agent Collaboration** pattern:
 
 ```mermaid
-flowchart TD
-    I["📝 User Input:<br>Write a short article about Kubernetes"]
-    R["📚 Researcher<br>Gathers key facts and talking points"]
-    W1["✍️ Writer<br>Drafts the article based on research"]
-    Rev["🔍 Reviewer<br>Critiques the draft, suggests improvements"]
-    W2["🔄 Writer<br>Revises based on feedback (reflection)"]
-
-    I --> R --> W1 --> Rev --> W2
+flowchart LR
+    I["📝 User Input"] --> R["📚 Researcher"]
+    R --> W1["✍️ Writer"]
+    W1 --> Rev["🔍 Reviewer"]
+    Rev --> W2["🔄 Writer revises"]
 ```
 
 ---
