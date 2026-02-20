@@ -64,9 +64,9 @@ The way we build software has been transforming rapidly:
 
 ```mermaid
 flowchart LR
-    A["🖥️ Traditional\nCoding\n2020-2022"] --> B["🤖 AI-Assisted\nCoding\n2023"]
-    B --> C["🎵 Vibe Coding\n(Karpathy)\n2024"]
-    C --> D["⚙️ Agentic\nEngineering\n2025-2026"]
+    A["🖥️ Traditional<br>Coding<br>2020-2022"] --> B["🤖 AI-Assisted<br>Coding<br>2023"]
+    B --> C["🎵 Vibe Coding<br>(Karpathy)<br>2024"]
+    C --> D["⚙️ Agentic<br>Engineering<br>2025-2026"]
 ```
 
 ### Key Milestones
@@ -111,7 +111,7 @@ The agent **critiques, evaluates, and iteratively improves** its own output.
 ```mermaid
 flowchart LR
     A[Generate] --> B[Evaluate] --> C[Revise]
-    C -. "loop until\nquality met" .-> A
+    C -. "loop until<br>quality met" .-> A
 ```
 
 - Code generators that review and debug their own code
@@ -158,10 +158,10 @@ At their core, AI agents follow a **Perceive → Plan → Act → Reflect** loop
 
 ```mermaid
 flowchart TD
-    P["🔍 Perceive\nContext, tools, user input"]
-    PL["📋 Plan\nDecompose goals into steps"]
-    A["⚡ Act\nExecute tools, generate output"]
-    R["🔁 Reflect\nEvaluate results, improve"]
+    P["🔍 Perceive<br>Context, tools, user input"]
+    PL["📋 Plan<br>Decompose goals into steps"]
+    A["⚡ Act<br>Execute tools, generate output"]
+    R["🔁 Reflect<br>Evaluate results, improve"]
 
     P --> PL --> A --> R
     R -. loop .-> P
@@ -293,7 +293,7 @@ Introduced by **Anthropic** in November 2024.
 
 ```mermaid
 flowchart LR
-    C["🤖 AI Client\n(Claude, etc)"] <-- "JSON-RPC 2.0" --> S["🔧 MCP Server\n(Tools/Data)"]
+    C["🤖 AI Client<br>(Claude, etc)"] <-- "JSON-RPC 2.0" --> S["🔧 MCP Server<br>(Tools/Data)"]
 ```
 
 - **Resources** — structured data (documents, DB rows)
@@ -312,7 +312,7 @@ Introduced by **Google** in 2025.
 
 ```mermaid
 flowchart LR
-    A["🤖 Agent A\n(Any vendor)"] <-- "A2A Protocol" --> B["🤖 Agent B\n(Any vendor)"]
+    A["🤖 Agent A<br>(Any vendor)"] <-- "A2A Protocol" --> B["🤖 Agent B<br>(Any vendor)"]
 ```
 
 - **Agent Cards** — JSON capability manifests at well-known endpoints
@@ -445,10 +445,10 @@ The role of a software developer is **not disappearing** — it's **evolving**:
 ```mermaid
 flowchart LR
     subgraph Before
-        B1["Developer\nwrites code\nruns tests\ndebugs\ndeploys"]
+        B1["Developer<br>writes code<br>runs tests<br>debugs<br>deploys"]
     end
     subgraph Now
-        N1["Developer\ndefines goals\ndesigns workflows\nreviews agent output\nvalidates quality"]
+        N1["Developer<br>defines goals<br>designs workflows<br>reviews agent output<br>validates quality"]
     end
     Before --> Now
 ```
@@ -482,11 +482,11 @@ A .NET console application demonstrating the **Multi-Agent Collaboration** patte
 
 ```mermaid
 flowchart TD
-    I["📝 User Input:\nWrite a short article about Kubernetes"]
-    R["📚 Researcher\nGathers key facts and talking points"]
-    W1["✍️ Writer\nDrafts the article based on research"]
-    Rev["🔍 Reviewer\nCritiques the draft, suggests improvements"]
-    W2["🔄 Writer\nRevises based on feedback (reflection)"]
+    I["📝 User Input:<br>Write a short article about Kubernetes"]
+    R["📚 Researcher<br>Gathers key facts and talking points"]
+    W1["✍️ Writer<br>Drafts the article based on research"]
+    Rev["🔍 Reviewer<br>Critiques the draft, suggests improvements"]
+    W2["🔄 Writer<br>Revises based on feedback (reflection)"]
 
     I --> R --> W1 --> Rev --> W2
 ```
