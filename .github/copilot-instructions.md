@@ -130,6 +130,7 @@ Every presentation should follow this outline:
 - Keep bullet points concise — no paragraphs inside bullets
 - Use **bold** for emphasis on key terms on first introduction
 - Use `inline code` for type names, method names, and technical identifiers
+- **Always format Markdown files** before committing — ensure consistent indentation, spacing, and alignment (e.g., table column alignment, trailing newlines, no trailing whitespace)
 
 ---
 
