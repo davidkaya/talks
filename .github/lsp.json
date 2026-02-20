@@ -1,8 +1,8 @@
 {
   "lspServers": {
     "markdown": {
-      "command": "prettier-lsp",
-      "args": ["--stdio"],
+      "command": "marksman",
+      "args": ["server"],
       "fileExtensions": {
         ".md": "markdown"
       }
