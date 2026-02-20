@@ -41,13 +41,13 @@ Instead of writing every line of code, engineers:
 
 ### Key Characteristics
 
-| Characteristic | Description |
-|---------------|-------------|
-| **Autonomy** | Agents act with minimal intervention, handling multi-step workflows |
-| **Goal-Oriented** | Engineers specify intentions and constraints, not procedural details |
-| **Iterative Validation** | Human oversight ensures outputs meet requirements |
-| **Collaboration** | Agents coordinate with each other and escalate to humans |
-| **Layered Oversight** | Spectrum from suggestion to full workflow execution under supervision |
+| Characteristic           | Description                                                           |
+| ------------------------ | --------------------------------------------------------------------- |
+| **Autonomy**             | Agents act with minimal intervention, handling multi-step workflows   |
+| **Goal-Oriented**        | Engineers specify intentions and constraints, not procedural details  |
+| **Iterative Validation** | Human oversight ensures outputs meet requirements                     |
+| **Collaboration**        | Agents coordinate with each other and escalate to humans              |
+| **Layered Oversight**    | Spectrum from suggestion to full workflow execution under supervision |
 
 > 📖 Ref: [Glide — "What is Agentic Engineering?"](https://www.glideapps.com/blog/what-is-agentic-engineering) · [Kilo.ai — Agentic Engineering](https://path.kilo.ai/introduction/what-is-agentic-engineering/)
 
@@ -57,15 +57,11 @@ Instead of writing every line of code, engineers:
 
 The way we build software has been transforming rapidly:
 
-```
-2020-2022        2023              2024              2025-2026
-┌──────────┐  ┌──────────────┐  ┌──────────────┐  ┌──────────────────┐
-│ Traditional│  │  AI-Assisted  │  │ Vibe Coding  │  │    Agentic        │
-│  Coding   │→ │   Coding      │→ │ (Karpathy)   │→ │  Engineering      │
-│           │  │  (Copilot)    │  │              │  │                  │
-└──────────┘  └──────────────┘  └──────────────┘  └──────────────────┘
-  You write     AI suggests       You prompt,       You orchestrate,
-  everything    completions       AI generates      agents execute
+```mermaid
+flowchart LR
+    A["🖥️ Traditional\nCoding\n2020-2022"] --> B["🤖 AI-Assisted\nCoding\n2023"]
+    B --> C["🎵 Vibe Coding\n(Karpathy)\n2024"]
+    C --> D["⚙️ Agentic\nEngineering\n2025-2026"]
 ```
 
 ### Key Milestones
@@ -77,13 +73,13 @@ The way we build software has been transforming rapidly:
 
 ### Comparison
 
-|               | Traditional Coding | Vibe Coding | Agentic Engineering |
-|---------------|-------------------|-------------|---------------------|
-| Human Role    | Writes code directly | Prompts AI, accepts output | Orchestrates agents, reviews, manages |
-| AI Role       | Suggests/assists | Generates code autonomously | Plans, codes, tests, iterates |
-| Oversight     | Full | Partial | Structured, layered |
-| Output        | Deterministic | Stochastic, varied | Goal-oriented, quality-controlled |
-| Risk          | Human bottleneck | Errors, lack of rigor | Oversight, governance |
+|            | Traditional Coding   | Vibe Coding                 | Agentic Engineering                   |
+| ---------- | -------------------- | --------------------------- | ------------------------------------- |
+| Human Role | Writes code directly | Prompts AI, accepts output  | Orchestrates agents, reviews, manages |
+| AI Role    | Suggests/assists     | Generates code autonomously | Plans, codes, tests, iterates         |
+| Oversight  | Full                 | Partial                     | Structured, layered                   |
+| Output     | Deterministic        | Stochastic, varied          | Goal-oriented, quality-controlled     |
+| Risk       | Human bottleneck     | Errors, lack of rigor       | Oversight, governance                 |
 
 > 📖 Ref: [Forbes — "From Vibe Coding to Agentic Engineering"](https://www.forbes.com/councils/forbestechcouncil/2025/08/21/from-vibe-coding-to-agentic-engineering-redefining-sdlc-with-one-pizza-teams/) · [Morph LLM — "The 2026 Paradigm Shift"](https://www.morphllm.com/blog/vibe-coding-to-agentic-engineering)
 
@@ -97,10 +93,10 @@ Andrew Ng (DeepLearning.AI) identified **four foundational design patterns** tha
 
 The agent **critiques, evaluates, and iteratively improves** its own output.
 
-```
-┌──────────┐    ┌──────────┐    ┌──────────┐
-│ Generate  │ →  │ Evaluate  │ →  │  Revise   │ ─── loop until quality met
-└──────────┘    └──────────┘    └──────────┘
+```mermaid
+flowchart LR
+    A[Generate] --> B[Evaluate] --> C[Revise]
+    C -. "loop until\nquality met" .-> A
 ```
 
 - Code generators that review and debug their own code
@@ -135,37 +131,24 @@ Distribute tasks among **multiple specialized agents** that interact, debate, cr
 
 At their core, AI agents follow a **Perceive → Plan → Act → Reflect** loop:
 
-```
-        ┌─────────────────────────────────────┐
-        │          Agent Core Loop             │
-        │                                     │
-        │   ┌──────────┐                      │
-        │   │ Perceive  │ ← Context, tools,   │
-        │   └─────┬─────┘   user input        │
-        │         ▼                            │
-        │   ┌──────────┐                      │
-        │   │   Plan    │ ← Decompose goals   │
-        │   └─────┬─────┘   into steps        │
-        │         ▼                            │
-        │   ┌──────────┐                      │
-        │   │   Act     │ ← Execute tools,    │
-        │   └─────┬─────┘   generate output   │
-        │         ▼                            │
-        │   ┌──────────┐                      │
-        │   │ Reflect   │ ← Evaluate results, │
-        │   └─────┬─────┘   improve           │
-        │         │                            │
-        │         └────── loop ────────────────┘
-        └─────────────────────────────────────┘
+```mermaid
+flowchart TD
+    P["🔍 Perceive\nContext, tools, user input"]
+    PL["📋 Plan\nDecompose goals into steps"]
+    A["⚡ Act\nExecute tools, generate output"]
+    R["🔁 Reflect\nEvaluate results, improve"]
+
+    P --> PL --> A --> R
+    R -. loop .-> P
 ```
 
 ### Memory Systems
 
-| Type | Purpose | Example |
-|------|---------|---------|
-| **Short-term (Working)** | Current task context | Conversation history, current plan |
+| Type                       | Purpose                   | Example                                        |
+| -------------------------- | ------------------------- | ---------------------------------------------- |
+| **Short-term (Working)**   | Current task context      | Conversation history, current plan             |
 | **Long-term (Persistent)** | Knowledge across sessions | Embeddings, vector stores, learned preferences |
-| **Episodic** | Past experiences | Previous task outcomes, error patterns |
+| **Episodic**               | Past experiences          | Previous task outcomes, error patterns         |
 
 ### Key Principle: Bounded Autonomy
 
@@ -183,14 +166,14 @@ Agents are **not fully autonomous**. They operate within defined boundaries:
 
 The tools we use to write software are becoming **agentic** — moving from autocomplete to autonomous coding:
 
-| Tool | Best For | Standout Feature | Autonomy |
-|------|----------|------------------|----------|
-| **GitHub Copilot Agent** | Teams, compliance | Tightest IDE integration (VS Code, JetBrains) | High |
-| **Cursor** | Complex projects | Multi-file refactor, AI-native IDE | High |
-| **Windsurf** | Enterprises | Cascade engine, auto linter fixes | High |
-| **Claude Code** | DevOps, CLI users | Deep code reasoning, terminal-based | High |
-| **Devin** | Full automation | End-to-end autonomous engineer | Very High |
-| **OpenAI Codex** | CLI power-users | Multi-modal CLI, open models | Moderate |
+| Tool                     | Best For          | Standout Feature                              | Autonomy  |
+| ------------------------ | ----------------- | --------------------------------------------- | --------- |
+| **GitHub Copilot Agent** | Teams, compliance | Tightest IDE integration (VS Code, JetBrains) | High      |
+| **Cursor**               | Complex projects  | Multi-file refactor, AI-native IDE            | High      |
+| **Windsurf**             | Enterprises       | Cascade engine, auto linter fixes             | High      |
+| **Claude Code**          | DevOps, CLI users | Deep code reasoning, terminal-based           | High      |
+| **Devin**                | Full automation   | End-to-end autonomous engineer                | Very High |
+| **OpenAI Codex**         | CLI power-users   | Multi-modal CLI, open models                  | Moderate  |
 
 ### What Makes Them "Agentic"?
 
@@ -237,12 +220,12 @@ Four major frameworks dominate the agentic AI space:
 
 ### Comparison
 
-| Framework | Architecture | Best For | Learning Curve |
-|-----------|-------------|----------|----------------|
-| **LangGraph** | Graph-based state machines | Production, complex workflows | Steep |
-| **AutoGen** | Conversation-driven | Multi-agent prototyping | Moderate |
-| **CrewAI** | Role-based teams | Structured collaboration | Easy |
-| **Semantic Kernel** | Plugin/skill-based | Enterprise integration | Moderate |
+| Framework           | Architecture               | Best For                      | Learning Curve |
+| ------------------- | -------------------------- | ----------------------------- | -------------- |
+| **LangGraph**       | Graph-based state machines | Production, complex workflows | Steep          |
+| **AutoGen**         | Conversation-driven        | Multi-agent prototyping       | Moderate       |
+| **CrewAI**          | Role-based teams           | Structured collaboration      | Easy           |
+| **Semantic Kernel** | Plugin/skill-based         | Enterprise integration        | Moderate       |
 
 > 📖 Ref: [Turing — "AI Agent Frameworks"](https://www.turing.com/resources/ai-agent-frameworks) · [arxiv — "Agentic AI Frameworks: Architectures, Protocols"](https://arxiv.org/html/2508.10146v1) · [mem0.ai — "Agentic Frameworks Guide"](https://mem0.ai/blog/agentic-frameworks-ai-agents)
 
@@ -256,11 +239,9 @@ Two open protocols are standardizing how agents connect to the world and to each
 
 > "The USB port for AI" — a universal way for LLMs to connect to external data, tools, and services.
 
-```
-┌─────────────┐     JSON-RPC 2.0     ┌─────────────┐
-│  AI Client   │ ◄──────────────────► │  MCP Server  │
-│ (Claude, etc)│                      │ (Tools/Data) │
-└─────────────┘                      └─────────────┘
+```mermaid
+flowchart LR
+    C["🤖 AI Client\n(Claude, etc)"] <-- "JSON-RPC 2.0" --> S["🔧 MCP Server\n(Tools/Data)"]
 ```
 
 - **Resources** — structured data (documents, DB rows)
@@ -273,11 +254,9 @@ Two open protocols are standardizing how agents connect to the world and to each
 
 > Enables secure, interoperable communication **between agents**, regardless of vendor or framework.
 
-```
-┌─────────────┐     A2A Protocol      ┌─────────────┐
-│   Agent A    │ ◄──────────────────► │   Agent B    │
-│ (Any vendor) │                      │ (Any vendor) │
-└─────────────┘                      └─────────────┘
+```mermaid
+flowchart LR
+    A["🤖 Agent A\n(Any vendor)"] <-- "A2A Protocol" --> B["🤖 Agent B\n(Any vendor)"]
 ```
 
 - **Agent Cards** — JSON capability manifests at well-known endpoints
@@ -287,11 +266,11 @@ Two open protocols are standardizing how agents connect to the world and to each
 
 ### MCP vs A2A — Complementary, Not Competing
 
-| Aspect | MCP | A2A |
-|--------|-----|-----|
-| **Focus** | Agent ↔ Tools/Data | Agent ↔ Agent |
-| **Purpose** | Give an agent access to external capabilities | Let agents collaborate across boundaries |
-| **Analogy** | USB port (connect peripherals) | Network protocol (connect computers) |
+| Aspect       | MCP                                                                       | A2A                                      |
+| ------------ | ------------------------------------------------------------------------- | ---------------------------------------- |
+| **Focus**    | Agent ↔ Tools/Data                                                        | Agent ↔ Agent                            |
+| **Purpose**  | Give an agent access to external capabilities                             | Let agents collaborate across boundaries |
+| **Analogy**  | USB port (connect peripherals)                                            | Network protocol (connect computers)     |
 | **Together** | MCP enriches each agent's capabilities; A2A lets those agents collaborate |
 
 > 📖 Ref: [Anthropic — "Introducing the Model Context Protocol"](https://www.anthropic.com/news/model-context-protocol) · [Google Developers Blog — "Announcing A2A"](https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/) · [Galileo — "A2A Protocol Explained"](https://galileo.ai/blog/google-agent2agent-a2a-protocol-guide)
@@ -381,26 +360,26 @@ The role of a software developer is **not disappearing** — it's **evolving**:
 
 ### From Code Writer → Orchestrator
 
-```
-Before:                              Now:
-┌──────────────────┐                ┌──────────────────────┐
-│  Developer        │                │  Developer            │
-│  writes code      │                │  defines goals        │
-│  runs tests       │       →        │  designs workflows    │
-│  debugs           │                │  reviews agent output │
-│  deploys          │                │  validates quality    │
-└──────────────────┘                └──────────────────────┘
+```mermaid
+flowchart LR
+    subgraph Before
+        B1["Developer\nwrites code\nruns tests\ndebugs\ndeploys"]
+    end
+    subgraph Now
+        N1["Developer\ndefines goals\ndesigns workflows\nreviews agent output\nvalidates quality"]
+    end
+    Before --> Now
 ```
 
 ### Skills to Develop
 
-| Traditional Skill | Agentic Equivalent |
-|-------------------|-------------------|
-| Writing code | Designing agent workflows |
-| Debugging | Evaluating agent outputs |
-| Code review | Agent output validation |
-| Architecture | System-of-agents design |
-| Testing | Defining quality constraints & guardrails |
+| Traditional Skill | Agentic Equivalent                        |
+| ----------------- | ----------------------------------------- |
+| Writing code      | Designing agent workflows                 |
+| Debugging         | Evaluating agent outputs                  |
+| Code review       | Agent output validation                   |
+| Architecture      | System-of-agents design                   |
+| Testing           | Defining quality constraints & guardrails |
 
 ### "One Pizza Teams" with AI Agents
 
@@ -418,24 +397,15 @@ A .NET console application demonstrating the **Multi-Agent Collaboration** patte
 
 ### Three Agents Working Together
 
-```
-User Input: "Write a short article about Kubernetes"
+```mermaid
+flowchart TD
+    I["📝 User Input:\nWrite a short article about Kubernetes"]
+    R["📚 Researcher\nGathers key facts and talking points"]
+    W1["✍️ Writer\nDrafts the article based on research"]
+    Rev["🔍 Reviewer\nCritiques the draft, suggests improvements"]
+    W2["🔄 Writer\nRevises based on feedback (reflection)"]
 
-     ┌──────────────┐
-     │  Researcher   │  ← Gathers key facts and talking points
-     └──────┬───────┘
-            ▼
-     ┌──────────────┐
-     │   Writer      │  ← Drafts the article based on research
-     └──────┬───────┘
-            ▼
-     ┌──────────────┐
-     │  Reviewer     │  ← Critiques the draft, suggests improvements
-     └──────┬───────┘
-            ▼
-     ┌──────────────┐
-     │   Writer      │  ← Revises based on feedback (reflection)
-     └──────────────┘
+    I --> R --> W1 --> Rev --> W2
 ```
 
 ### Patterns Demonstrated
@@ -454,17 +424,17 @@ dotnet run
 
 ## 12. Key Takeaways
 
-| # | Takeaway |
-|---|----------|
-| 1 | Agentic Engineering is the **next evolution** beyond vibe coding — from prompting to orchestrating |
-| 2 | Andrew Ng's **4 patterns** (Reflection, Tool Use, Planning, Multi-Agent) are the building blocks |
-| 3 | Agents follow a **Perceive → Plan → Act → Reflect** loop with bounded autonomy |
-| 4 | **MCP** (Anthropic) connects agents to tools; **A2A** (Google) connects agents to each other |
-| 5 | Frameworks like **Semantic Kernel**, LangGraph, AutoGen, and CrewAI make it practical |
-| 6 | Coding tools (Copilot Agent, Cursor, Windsurf) are **already agentic** |
-| 7 | **Best practices**: bounded autonomy, observability, human-in-the-loop, policy enforcement |
-| 8 | **Risks are real**: hallucination, security, governance — OWASP published Top 10 for Agentic AI |
-| 9 | The developer's role is **evolving**, not disappearing — from writer to orchestrator |
+| #   | Takeaway                                                                                           |
+| --- | -------------------------------------------------------------------------------------------------- |
+| 1   | Agentic Engineering is the **next evolution** beyond vibe coding — from prompting to orchestrating |
+| 2   | Andrew Ng's **4 patterns** (Reflection, Tool Use, Planning, Multi-Agent) are the building blocks   |
+| 3   | Agents follow a **Perceive → Plan → Act → Reflect** loop with bounded autonomy                     |
+| 4   | **MCP** (Anthropic) connects agents to tools; **A2A** (Google) connects agents to each other       |
+| 5   | Frameworks like **Semantic Kernel**, LangGraph, AutoGen, and CrewAI make it practical              |
+| 6   | Coding tools (Copilot Agent, Cursor, Windsurf) are **already agentic**                             |
+| 7   | **Best practices**: bounded autonomy, observability, human-in-the-loop, policy enforcement         |
+| 8   | **Risks are real**: hallucination, security, governance — OWASP published Top 10 for Agentic AI    |
+| 9   | The developer's role is **evolving**, not disappearing — from writer to orchestrator               |
 
 ---
 

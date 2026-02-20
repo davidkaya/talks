@@ -41,22 +41,20 @@ transition: slide-left
 
 Think of middleware like **layers of an onion** — the request travels inward through each layer, hits the endpoint, and the response travels back outward through the same layers in reverse:
 
-```
-        ┌─────────────────────────────────────────────┐
-        │  Exception Handler                          │
-        │  ┌───────────────────────────────────────┐  │
-        │  │  HTTPS Redirection                    │  │
-        │  │  ┌─────────────────────────────────┐  │  │
-        │  │  │  Authentication                 │  │  │
-        │  │  │  ┌───────────────────────────┐  │  │  │
-        │  │  │  │  Authorization            │  │  │  │
-        │  │  │  │  ┌─────────────────────┐  │  │  │  │
-Request ──►│  │  │  │   Your Endpoint     │  │  │  │──► Response
-        │  │  │  │  └─────────────────────┘  │  │  │  │
-        │  │  │  └───────────────────────────┘  │  │  │
-        │  │  └─────────────────────────────────┘  │  │
-        │  └───────────────────────────────────────┘  │
-        └─────────────────────────────────────────────┘
+```mermaid
+block-beta
+    columns 1
+    block:outer["Exception Handler"]
+        block:redir["HTTPS Redirection"]
+            block:authn["Authentication"]
+                block:authz["Authorization"]
+                    endpoint["Your Endpoint"]
+                end
+            end
+        end
+    end
+    Request --> outer
+    outer --> Response
 ```
 
 ---
@@ -270,19 +268,19 @@ The **order you add middleware is the order they execute**. Getting it wrong cau
 
 ### Recommended Order
 
-```
- 1.  UseExceptionHandler / UseDeveloperExceptionPage   ← Catch everything
- 2.  UseHsts
- 3.  UseHttpsRedirection
- 4.  UseStaticFiles                                     ← Short-circuit for static files
- 5.  UseRouting                                         ← Match URL to endpoint
- 6.  UseCors                                            ← Must be between routing & auth
- 7.  UseAuthentication                                  ← Who are you?
- 8.  UseAuthorization                                   ← Are you allowed?
- 9.  UseRateLimiter
-10.  UseResponseCaching / UseOutputCache
-11.  Custom middlewares                                  ← Your business logic
-12.  MapControllers / MapEndpoints                       ← Terminal
+```mermaid
+flowchart TD
+    A["1. UseExceptionHandler"] --> B["2. UseHsts"]
+    B --> C["3. UseHttpsRedirection"]
+    C --> D["4. UseStaticFiles"]
+    D --> E["5. UseRouting"]
+    E --> F["6. UseCors"]
+    F --> G["7. UseAuthentication"]
+    G --> H["8. UseAuthorization"]
+    H --> I["9. UseRateLimiter"]
+    I --> J["10. UseResponseCaching"]
+    J --> K["11. Custom middlewares"]
+    K --> L["12. MapControllers / MapEndpoints"]
 ```
 
 ### Why This Order?
@@ -402,11 +400,11 @@ app.MapControllers();
 
 ### Decision Guide
 
-```
-Do you need a completely separate pipeline?
-├── Yes → Use Map() or MapWhen()
-└── No, just conditional middleware
-    └── Use UseWhen()
+```mermaid
+flowchart TD
+    Q{"Do you need a completely\nseparate pipeline?"}
+    Q -- Yes --> M["Use Map() or MapWhen()"]
+    Q -- No --> U["Use UseWhen()"]
 ```
 
 ---
