@@ -40,7 +40,9 @@ Instead of writing every line of code, engineers:
 - 🔍 **Review and validate** outputs
 - 🔄 **Iterate** with structured oversight
 
-### Key Characteristics
+---
+
+## 1. Key Characteristics
 
 | Characteristic           | Description                                                           |
 | ------------------------ | --------------------------------------------------------------------- |
@@ -76,7 +78,9 @@ flowchart LR
 - **2025-2026** — **Agentic Engineering** emerges — from accepting suggestions to orchestrating
   fleets of AI agents
 
-### Comparison
+---
+
+## 2. The Evolution — Comparison
 
 |            | Traditional Coding   | Vibe Coding                 | Agentic Engineering                   |
 | ---------- | -------------------- | --------------------------- | ------------------------------------- |
@@ -93,12 +97,18 @@ flowchart LR
 
 ---
 
+---
+
+## layout: section
+
 ## 3. The Four Agentic Design Patterns
 
 Andrew Ng (DeepLearning.AI) identified **four foundational design patterns** that make AI agents far
-more capable than single-shot prompting:
+more capable than single-shot prompting.
 
-### 🔁 Pattern 1: Reflection
+---
+
+## 3a. 🔁 Reflection
 
 The agent **critiques, evaluates, and iteratively improves** its own output.
 
@@ -111,7 +121,9 @@ flowchart LR
 - Code generators that review and debug their own code
 - Even simpler models, when used with reflection, **outperform advanced models** used without it
 
-### 🔧 Pattern 2: Tool Use
+---
+
+## 3b. 🔧 Tool Use
 
 Agents access **external tools** — APIs, databases, web search, code execution — extending beyond
 the LLM's built-in knowledge.
@@ -119,7 +131,7 @@ the LLM's built-in knowledge.
 - Research agents that search the web for up-to-date information
 - Agents that execute code, query databases, or interact with business software
 
-### 📋 Pattern 3: Planning
+## 3c. 📋 Planning
 
 Decompose a complex problem into a **sequence of actionable steps**, then execute them — adjusting
 dynamically as new information emerges.
@@ -127,7 +139,9 @@ dynamically as new information emerges.
 - Break a project into: requirements → design → implementation → testing
 - Dynamic replanning when intermediate steps fail
 
-### 👥 Pattern 4: Multi-Agent Collaboration
+---
+
+## 3d. 👥 Multi-Agent Collaboration
 
 Distribute tasks among **multiple specialized agents** that interact, debate, critique, and combine
 their efforts.
@@ -156,6 +170,10 @@ flowchart TD
     P --> PL --> A --> R
     R -. loop .-> P
 ```
+
+---
+
+## 4. Memory Systems & Bounded Autonomy
 
 ### Memory Systems
 
@@ -193,7 +211,9 @@ coding:
 | **Devin**                | Full automation   | End-to-end autonomous engineer                | Very High |
 | **OpenAI Codex**         | CLI power-users   | Multi-modal CLI, open models                  | Moderate  |
 
-### What Makes Them "Agentic"?
+---
+
+## 5. What Makes Them "Agentic"?
 
 Unlike traditional autocomplete, these tools can:
 
@@ -209,9 +229,17 @@ Unlike traditional autocomplete, these tools can:
 
 ---
 
+---
+
+## layout: section
+
 ## 6. Agentic Frameworks for Developers
 
-Four major frameworks dominate the agentic AI space:
+Four major frameworks dominate the agentic AI space.
+
+---
+
+## 6a. LangGraph & AutoGen
 
 ### LangGraph (LangChain)
 
@@ -226,6 +254,10 @@ Four major frameworks dominate the agentic AI space:
 - Agents delegate tasks and communicate through dialogue
 - Great for rapid prototyping of multi-agent capabilities
 
+---
+
+## 6b. CrewAI & Semantic Kernel
+
 ### CrewAI
 
 - **Role-based team** paradigm — each agent specializes in a skill
@@ -238,7 +270,9 @@ Four major frameworks dominate the agentic AI space:
 - Composable connectors for existing APIs and business processes
 - Production-grade orchestration, logging, monitoring
 
-### Comparison
+---
+
+## 6. Framework Comparison
 
 | Framework           | Architecture               | Best For                      | Learning Curve |
 | ------------------- | -------------------------- | ----------------------------- | -------------- |
@@ -253,13 +287,21 @@ Four major frameworks dominate the agentic AI space:
 
 ---
 
+---
+
+## layout: section
+
 ## 7. The Protocols: MCP and A2A
 
-Two open protocols are standardizing how agents connect to the world and to each other:
+Two open protocols are standardizing how agents connect to the world and to each other.
 
-### MCP — Model Context Protocol (Anthropic, Nov 2024)
+---
+
+## 7a. MCP — Model Context Protocol
 
 > "The USB port for AI" — a universal way for LLMs to connect to external data, tools, and services.
+
+Introduced by **Anthropic** in November 2024.
 
 ```mermaid
 flowchart LR
@@ -272,9 +314,13 @@ flowchart LR
 - Inspired by the **Language Server Protocol** (LSP)
 - Adopted by OpenAI, Google DeepMind; donated to the **Linux Foundation**
 
-### A2A — Agent-to-Agent Protocol (Google, 2025)
+---
+
+## 7b. A2A — Agent-to-Agent Protocol
 
 > Enables secure, interoperable communication **between agents**, regardless of vendor or framework.
+
+Introduced by **Google** in 2025.
 
 ```mermaid
 flowchart LR
@@ -286,7 +332,9 @@ flowchart LR
 - **Opaque execution** — agents don't expose internal state
 - 150+ partners; governed by the **Linux Foundation**
 
-### MCP vs A2A — Complementary, Not Competing
+---
+
+## 7c. MCP vs A2A — Complementary, Not Competing
 
 | Aspect       | MCP                                                                       | A2A                                      |
 | ------------ | ------------------------------------------------------------------------- | ---------------------------------------- |
@@ -323,6 +371,10 @@ flowchart LR
 - Embed robust monitoring to track agent actions and outputs
 - Maintain **full audit logs** for investigation and improvement
 - Know what your agents are doing at all times
+
+---
+
+## 8. Best Practices (continued)
 
 ### 🛡️ Policy Enforcement at Boundaries
 
@@ -369,6 +421,10 @@ flowchart LR
 - Avoiding conflicts and securing multi-agent workflows grows harder at scale
 - Need formal coordination protocols
 
+---
+
+## 9. Risks & Challenges (continued)
+
 ### ⚖️ Legal & Ethical Risks
 
 - Misaligned output can create **significant liability**
@@ -409,7 +465,9 @@ flowchart LR
     Before --> Now
 ```
 
-### Skills to Develop
+---
+
+## 10. Skills to Develop
 
 | Traditional Skill | Agentic Equivalent                        |
 | ----------------- | ----------------------------------------- |
@@ -434,8 +492,6 @@ flowchart LR
 
 A .NET console application demonstrating the **Multi-Agent Collaboration** pattern:
 
-### Three Agents Working Together
-
 ```mermaid
 flowchart TD
     I["📝 User Input:\nWrite a short article about Kubernetes"]
@@ -447,7 +503,9 @@ flowchart TD
     I --> R --> W1 --> Rev --> W2
 ```
 
-### Patterns Demonstrated
+---
+
+## 11. Patterns Demonstrated
 
 - ✅ **Multi-Agent Collaboration** — three specialized agents
 - ✅ **Planning** — Researcher decomposes the topic
@@ -490,6 +548,10 @@ dotnet run
 - 📖
   [Glide — "What is Agentic Engineering?"](https://www.glideapps.com/blog/what-is-agentic-engineering)
 - 📖 [IBM — Agentic AI Security Guide](https://www.ibm.com/think/insights/agentic-ai-security)
+
+---
+
+## Resources (continued)
 
 ### Academic Papers
 
