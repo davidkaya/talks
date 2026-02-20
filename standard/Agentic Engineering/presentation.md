@@ -1,3 +1,14 @@
+---
+theme: default
+title: Agentic Engineering
+info: |
+  How software engineering is evolving from writing code to orchestrating
+  AI agents — design patterns, frameworks, protocols (MCP & A2A), tools,
+  and best practices.
+highlighter: shiki
+transition: slide-left
+---
+
 # Agentic Engineering
 
 ## Agenda

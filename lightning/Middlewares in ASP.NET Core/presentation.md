@@ -1,3 +1,13 @@
+---
+theme: default
+title: Middlewares in ASP.NET Core
+info: |
+  A lightning talk exploring how the ASP.NET Core request pipeline works
+  and how to write custom middleware.
+highlighter: shiki
+transition: slide-left
+---
+
 # Middlewares in ASP.NET Core
 
 ## Agenda

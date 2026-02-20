@@ -1,3 +1,13 @@
+---
+theme: default
+title: Iterating in C#
+info: |
+  A lightning talk covering all the ways to iterate in C# — from basic for
+  and foreach to Span<T>, await foreach, and parallel loops.
+highlighter: shiki
+transition: slide-left
+---
+
 # Iterating in C#
 
 ## Agenda
