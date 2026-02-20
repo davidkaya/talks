@@ -35,11 +35,13 @@ transition: slide-left
   - ✅ **Call the next** component in the chain (or choose **not to**)
   - ✅ **Execute logic** after the next component has completed
 - Middleware is the **first and last** code to touch every request
-- It's how ASP.NET Core implements **cross-cutting concerns**: logging, auth, error handling, CORS, caching
+- It's how ASP.NET Core implements **cross-cutting concerns**: logging, auth, error handling, CORS,
+  caching
 
 ### The Mental Model
 
-Think of middleware like **layers of an onion** — the request travels inward through each layer, hits the endpoint, and the response travels back outward through the same layers in reverse:
+Think of middleware like **layers of an onion** — the request travels inward through each layer,
+hits the endpoint, and the response travels back outward through the same layers in reverse:
 
 ```mermaid
 block-beta
@@ -66,7 +68,8 @@ When an HTTP request arrives, ASP.NET Core:
 1. Creates an `HttpContext` containing the `Request` and `Response`
 2. Passes it to the **first middleware** in the pipeline
 3. Each middleware calls `next()` to pass control to the next one
-4. When the innermost middleware (or endpoint) completes, control unwinds **back through each middleware in reverse order**
+4. When the innermost middleware (or endpoint) completes, control unwinds **back through each
+   middleware in reverse order**
 5. The final response is sent to the client
 
 ### The Core Abstraction: `RequestDelegate`
@@ -77,7 +80,8 @@ When an HTTP request arrives, ASP.NET Core:
 public delegate Task RequestDelegate(HttpContext context);
 ```
 
-Every middleware is ultimately a function that receives an `HttpContext` and a reference to the **next** `RequestDelegate` in the chain.
+Every middleware is ultimately a function that receives an `HttpContext` and a reference to the
+**next** `RequestDelegate` in the chain.
 
 ---
 
@@ -115,7 +119,8 @@ app.Run(async context =>
 
 ### `Map()` — Branch the pipeline
 
-Creates a **separate pipeline branch** based on the request path. The branch does **not** rejoin the main pipeline.
+Creates a **separate pipeline branch** based on the request path. The branch does **not** rejoin the
+main pipeline.
 
 ```csharp
 app.Map("/health", branch =>
@@ -127,13 +132,13 @@ app.Map("/health", branch =>
 
 ### Summary Table
 
-| Method     | Calls `next()`? | Rejoins pipeline? | Use case                        |
-|------------|:---------------:|:-----------------:|---------------------------------|
-| `Use()`    | ✅ Yes          | ✅ Yes            | Cross-cutting logic             |
-| `Run()`    | ❌ No           | N/A (terminal)    | Final response generation       |
-| `Map()`    | Depends         | ❌ No             | Path-based branching            |
-| `UseWhen()`| ✅ Yes          | ✅ Yes            | Conditional middleware          |
-| `MapWhen()`| Depends         | ❌ No             | Condition-based branching       |
+| Method      | Calls `next()`? | Rejoins pipeline? | Use case                  |
+| ----------- | :-------------: | :---------------: | ------------------------- |
+| `Use()`     |     ✅ Yes      |      ✅ Yes       | Cross-cutting logic       |
+| `Run()`     |      ❌ No      |  N/A (terminal)   | Final response generation |
+| `Map()`     |     Depends     |       ❌ No       | Path-based branching      |
+| `UseWhen()` |     ✅ Yes      |      ✅ Yes       | Conditional middleware    |
+| `MapWhen()` |     Depends     |       ❌ No       | Condition-based branching |
 
 ---
 
@@ -141,22 +146,23 @@ app.Map("/health", branch =>
 
 ASP.NET Core ships with many middlewares out of the box:
 
-| Middleware                  | Purpose                                | When it short-circuits                |
-|-----------------------------|----------------------------------------|---------------------------------------|
-| `UseExceptionHandler`      | Global error handling                  | When an exception is thrown           |
-| `UseHsts`                  | HTTP Strict Transport Security         | Never (adds header only)             |
-| `UseHttpsRedirection`      | Redirect HTTP → HTTPS                  | When request is HTTP                  |
-| `UseStaticFiles`           | Serve static files (wwwroot)           | When file exists on disk              |
-| `UseRouting`               | Match URL to endpoints                 | Never (sets metadata)                |
-| `UseCors`                  | Cross-Origin Resource Sharing          | On preflight OPTIONS requests         |
-| `UseAuthentication`        | Identify the user                      | Never (sets `User` on context)       |
-| `UseAuthorization`         | Check permissions                      | When user lacks required permissions  |
-| `UseResponseCaching`       | Cache responses                        | When a valid cached response exists   |
-| `UseRateLimiter`           | Rate limiting (.NET 7+)               | When rate limit is exceeded           |
-| `UseOutputCache`           | Output caching (.NET 7+)              | When a cached output exists           |
-| `UseResponseCompression`   | Gzip/Brotli compression               | Never (wraps response stream)        |
+| Middleware               | Purpose                        | When it short-circuits               |
+| ------------------------ | ------------------------------ | ------------------------------------ |
+| `UseExceptionHandler`    | Global error handling          | When an exception is thrown          |
+| `UseHsts`                | HTTP Strict Transport Security | Never (adds header only)             |
+| `UseHttpsRedirection`    | Redirect HTTP → HTTPS          | When request is HTTP                 |
+| `UseStaticFiles`         | Serve static files (wwwroot)   | When file exists on disk             |
+| `UseRouting`             | Match URL to endpoints         | Never (sets metadata)                |
+| `UseCors`                | Cross-Origin Resource Sharing  | On preflight OPTIONS requests        |
+| `UseAuthentication`      | Identify the user              | Never (sets `User` on context)       |
+| `UseAuthorization`       | Check permissions              | When user lacks required permissions |
+| `UseResponseCaching`     | Cache responses                | When a valid cached response exists  |
+| `UseRateLimiter`         | Rate limiting (.NET 7+)        | When rate limit is exceeded          |
+| `UseOutputCache`         | Output caching (.NET 7+)       | When a cached output exists          |
+| `UseResponseCompression` | Gzip/Brotli compression        | Never (wraps response stream)        |
 
-> 💡 **Key insight**: Some middleware short-circuits (stops the pipeline early), while others just add behavior and always call `next()`.
+> 💡 **Key insight**: Some middleware short-circuits (stops the pipeline early), while others just
+> add behavior and always call `next()`.
 
 ---
 
@@ -221,14 +227,14 @@ public static class RequestTimingMiddlewareExtensions
 
 ### Convention Rules
 
-| Rule | Detail |
-|------|--------|
-| Constructor | First param must be `RequestDelegate` |
-| Method name | Must be `InvokeAsync` or `Invoke` |
-| Return type | Must return `Task` |
-| First method param | Must be `HttpContext` |
-| Lifetime | **Singleton** — created once, shared across all requests |
-| Scoped services | Inject via `InvokeAsync` parameters, **not** constructor |
+| Rule               | Detail                                                   |
+| ------------------ | -------------------------------------------------------- |
+| Constructor        | First param must be `RequestDelegate`                    |
+| Method name        | Must be `InvokeAsync` or `Invoke`                        |
+| Return type        | Must return `Task`                                       |
+| First method param | Must be `HttpContext`                                    |
+| Lifetime           | **Singleton** — created once, shared across all requests |
+| Scoped services    | Inject via `InvokeAsync` parameters, **not** constructor |
 
 ### 5c. `IMiddleware` Interface (Factory-based)
 
@@ -254,17 +260,18 @@ builder.Services.AddTransient<ScopedMiddleware>();
 
 ### When to Use Which?
 
-| Approach | Lifetime | DI Support | Best for |
-|----------|----------|------------|----------|
-| Inline `Use()` | N/A | Captured closures | Prototyping, one-liners |
-| Convention class | Singleton | Constructor (singleton) + `InvokeAsync` params (scoped) | Most production middleware |
-| `IMiddleware` | Per-request | Full constructor injection | Middleware that needs scoped services |
+| Approach         | Lifetime    | DI Support                                              | Best for                              |
+| ---------------- | ----------- | ------------------------------------------------------- | ------------------------------------- |
+| Inline `Use()`   | N/A         | Captured closures                                       | Prototyping, one-liners               |
+| Convention class | Singleton   | Constructor (singleton) + `InvokeAsync` params (scoped) | Most production middleware            |
+| `IMiddleware`    | Per-request | Full constructor injection                              | Middleware that needs scoped services |
 
 ---
 
 ## 6. Middleware Ordering – Why It Matters
 
-The **order you add middleware is the order they execute**. Getting it wrong causes subtle (and not-so-subtle) bugs.
+The **order you add middleware is the order they execute**. Getting it wrong causes subtle (and
+not-so-subtle) bugs.
 
 ### Recommended Order
 
@@ -287,8 +294,10 @@ flowchart TD
 
 - **Exception handler first** → catches errors from ALL downstream middleware
 - **Static files before routing** → avoids unnecessary auth checks for CSS/JS/images
-- **Authentication before Authorization** → you must know *who* the user is before checking *what* they can do
-- **CORS between Routing and Auth** → preflight requests need CORS headers but shouldn't require auth
+- **Authentication before Authorization** → you must know _who_ the user is before checking _what_
+  they can do
+- **CORS between Routing and Auth** → preflight requests need CORS headers but shouldn't require
+  auth
 
 ### ⚠️ Common Mistakes
 
@@ -311,7 +320,8 @@ app.UseStaticFiles();      // Now CSS requires login!
 
 ## 7. Short-Circuiting the Pipeline
 
-A middleware **short-circuits** when it doesn't call `next()`. The request never reaches downstream middleware or endpoints.
+A middleware **short-circuits** when it doesn't call `next()`. The request never reaches downstream
+middleware or endpoints.
 
 ### When to Short-Circuit
 
@@ -386,7 +396,8 @@ app.MapWhen(
 
 ### `UseWhen` – Conditionally add middleware (rejoins pipeline!) ⭐
 
-This is often what you actually want — add extra middleware only for certain requests, but **stay in the main pipeline**:
+This is often what you actually want — add extra middleware only for certain requests, but **stay in
+the main pipeline**:
 
 ```csharp
 // Only validate API key for /secure/* routes
@@ -411,20 +422,21 @@ flowchart TD
 
 ## 9. Middleware vs Filters – When to Use What
 
-ASP.NET Core also has **Action Filters**, **Endpoint Filters**, etc. When should you use middleware vs filters?
+ASP.NET Core also has **Action Filters**, **Endpoint Filters**, etc. When should you use middleware
+vs filters?
 
-| Aspect | Middleware | Filters |
-|--------|-----------|---------|
-| Scope | **All requests** (even non-endpoint) | Only matched endpoints |
-| Access to | `HttpContext` only | `HttpContext` + MVC context (ModelState, ActionArguments) |
-| Runs when | Every request, always | Only when an endpoint is matched |
-| Best for | Cross-cutting concerns (logging, CORS, auth, compression) | Endpoint-specific logic (validation, caching, transformations) |
-| Pipeline level | Outer (HTTP pipeline) | Inner (MVC/endpoint pipeline) |
+| Aspect         | Middleware                                                | Filters                                                        |
+| -------------- | --------------------------------------------------------- | -------------------------------------------------------------- |
+| Scope          | **All requests** (even non-endpoint)                      | Only matched endpoints                                         |
+| Access to      | `HttpContext` only                                        | `HttpContext` + MVC context (ModelState, ActionArguments)      |
+| Runs when      | Every request, always                                     | Only when an endpoint is matched                               |
+| Best for       | Cross-cutting concerns (logging, CORS, auth, compression) | Endpoint-specific logic (validation, caching, transformations) |
+| Pipeline level | Outer (HTTP pipeline)                                     | Inner (MVC/endpoint pipeline)                                  |
 
 ### Rule of Thumb
 
-> **Use middleware** when the behavior should apply to **all requests** (or broad categories).
-> **Use filters** when the behavior is tied to **specific endpoints or controllers**.
+> **Use middleware** when the behavior should apply to **all requests** (or broad categories). **Use
+> filters** when the behavior is tied to **specific endpoints or controllers**.
 
 ---
 
@@ -537,13 +549,13 @@ public async Task InvokeAsync(HttpContext context)
 
 ### ❌ Pitfalls
 
-| Pitfall | Why it's bad |
-|---------|-------------|
-| Modifying `Response.Headers` after `next()` | Response may already be sent — throws `InvalidOperationException` |
+| Pitfall                                             | Why it's bad                                                              |
+| --------------------------------------------------- | ------------------------------------------------------------------------- |
+| Modifying `Response.Headers` after `next()`         | Response may already be sent — throws `InvalidOperationException`         |
 | Injecting scoped services in middleware constructor | Middleware is singleton — scoped service becomes a **captive dependency** |
-| Forgetting to call `next()` | Silently short-circuits the pipeline; downstream middleware never runs |
-| Calling `next()` after writing to response body | May corrupt the response or throw |
-| Heavy logic in middleware | Runs on **every** request — use filters for endpoint-specific logic |
+| Forgetting to call `next()`                         | Silently short-circuits the pipeline; downstream middleware never runs    |
+| Calling `next()` after writing to response body     | May corrupt the response or throw                                         |
+| Heavy logic in middleware                           | Runs on **every** request — use filters for endpoint-specific logic       |
 
 ### ✅ Best Practices
 
@@ -578,25 +590,29 @@ public async Task RequestTimingMiddleware_LogsElapsedTime()
 
 ## 12. Key Takeaways
 
-| # | Takeaway |
-|---|----------|
-| 1 | Middleware forms a **bidirectional pipeline** — request goes in, response comes out |
-| 2 | **Order is everything** — exception handling first, auth before authz, static files before routing |
-| 3 | **`Use` / `Run` / `Map`** are the three fundamental building blocks |
-| 4 | **Short-circuiting** is powerful — use it for validation, caching, health checks |
-| 5 | Use **convention-based classes** for production middleware (testable, injectable) |
-| 6 | Use **`IMiddleware`** when you need per-request (scoped) DI |
-| 7 | Use **`UseWhen`** (not `MapWhen`) when you want conditional middleware that rejoins the pipeline |
-| 8 | **Middleware ≠ Filters** — middleware is for cross-cutting concerns; filters are for endpoint-specific logic |
-| 9 | Middleware is the backbone of **everything** in ASP.NET Core — even the framework features are middleware |
+| #   | Takeaway                                                                                                     |
+| --- | ------------------------------------------------------------------------------------------------------------ |
+| 1   | Middleware forms a **bidirectional pipeline** — request goes in, response comes out                          |
+| 2   | **Order is everything** — exception handling first, auth before authz, static files before routing           |
+| 3   | **`Use` / `Run` / `Map`** are the three fundamental building blocks                                          |
+| 4   | **Short-circuiting** is powerful — use it for validation, caching, health checks                             |
+| 5   | Use **convention-based classes** for production middleware (testable, injectable)                            |
+| 6   | Use **`IMiddleware`** when you need per-request (scoped) DI                                                  |
+| 7   | Use **`UseWhen`** (not `MapWhen`) when you want conditional middleware that rejoins the pipeline             |
+| 8   | **Middleware ≠ Filters** — middleware is for cross-cutting concerns; filters are for endpoint-specific logic |
+| 9   | Middleware is the backbone of **everything** in ASP.NET Core — even the framework features are middleware    |
 
 ---
 
 ## Resources
 
-- 📖 [ASP.NET Core Middleware Docs](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/)
-- 📖 [Write Custom Middleware](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/write)
-- 📖 [Middleware Ordering](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/#middleware-order)
-- 📖 [Filters in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/mvc/controllers/filters)
+- 📖
+  [ASP.NET Core Middleware Docs](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/)
+- 📖
+  [Write Custom Middleware](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/write)
+- 📖
+  [Middleware Ordering](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/#middleware-order)
+- 📖
+  [Filters in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/mvc/controllers/filters)
 - 📦 [Demo Project → `./MiddlewareDemo`](./MiddlewareDemo/)
-- 
+-

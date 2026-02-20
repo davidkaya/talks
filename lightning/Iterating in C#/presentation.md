@@ -50,9 +50,8 @@ C# gives us many tools:
 - `Span` / `Memory`
 
 ---
-  
-## 2. The `for` Loop
 
+## 2. The `for` Loop
 
 ```csharp
 var numbers = new List<int> { 10, 20, 30, 40 };
@@ -62,8 +61,6 @@ for (int i = 0; i < numbers.Count; i++)
     Console.WriteLine(numbers[i]);
 }
 ```
-
-  
 
 ✅ **Pros**
 
@@ -85,14 +82,12 @@ You need the index or modify elements in place.
 
 ## 3. The `foreach` Loop
 
-
 ```csharp
 foreach (var n in numbers)
 {
     Console.WriteLine(n);
 }
 ```
-
 
 ✅ **Pros**
 
@@ -113,7 +108,6 @@ using (var e = numbers.GetEnumerator())
 }
 ```
 
-
 ⚠️ **Cons**
 
 - Can't modify collection while iterating
@@ -122,7 +116,7 @@ using (var e = numbers.GetEnumerator())
 💡 **Use when:**  
 
 You just need to read elements.
-  
+
 ---
 
 ## 4. `foreach` with `ref` / `ref readonly`
@@ -144,7 +138,7 @@ foreach (ref readonly var x in bigStructSpan)
     Console.WriteLine(x);
 }
 ```
-  
+
 ✅ **Pros**
 
 - Avoids copying large structs
@@ -169,7 +163,6 @@ while (e.MoveNext())
 }
 ```
 
-  
 ✅ **Pros**
 
 - Full control of enumeration lifecycle
@@ -198,7 +191,6 @@ foreach (var x in doubled)
     Console.WriteLine(x);
 ```
 
-
 🧠 **Lazy evaluation**
 
 - Work happens only when you consume (`foreach`, `.ToList()`, etc.)
@@ -214,7 +206,6 @@ foreach (var x in doubled)
 ```csharp
 var cached = big.ToList();
 ```
-
 
 💡 **Use when:**  
 
@@ -234,7 +225,6 @@ Parallel.ForEach(urls, url =>
 
 ```
 
-
 ✅ **Pros**
 
 - Parallelizes CPU-bound loops
@@ -249,12 +239,10 @@ Parallel.ForEach(urls, url =>
 💡 **Use when:**  
 
 Each item can be processed independently.
-  
+
 ---
 
 ## 8. Async Iteration (`await foreach`)
-
-  
 
 ```csharp
 await foreach (var line in ReadLinesAsync("data.txt"))
@@ -269,8 +257,6 @@ async IAsyncEnumerable<string> ReadLinesAsync(string path)
         yield return await reader.ReadLineAsync();
 }
 ```
-
-  
 
 ✅ **Pros**
 
@@ -308,8 +294,6 @@ Performance and memory control matter.
 
 ## 10. Mutating While Iterating
 
-  
-
 ❌ **Will throw**
 
 ```csharp
@@ -320,8 +304,6 @@ foreach (var x in list)
 }
 
 ```
-
-  
 
 ✅ **Fix 1 — backward for loop**
 
@@ -342,8 +324,6 @@ list = list.Where(x => !ShouldRemove(x)).ToList();
 
 ## 11. Bonus: Custom Iterators
 
-  
-
 ```csharp
 
 static IEnumerable<int> CountUpTo(int max)
@@ -357,8 +337,6 @@ foreach (var x in CountUpTo(3))
 
 ```
 
-  
-
 💡 **`yield return`**
 
 - Builds a lazy sequence
@@ -368,16 +346,16 @@ foreach (var x in CountUpTo(3))
 
 ## 12. Key Takeaways
 
-| # | Takeaway |
-|---|----------|
-| 1 | `foreach` is the idiomatic default — use it unless you have a reason not to |
-| 2 | Use `for` when you need the index or must mutate elements in place |
-| 3 | LINQ is expressive and lazy — but beware of multiple enumeration and allocations |
-| 4 | `Parallel.ForEach` is for CPU-bound work — not async I/O |
-| 5 | `await foreach` streams async results without buffering everything in memory |
-| 6 | `ref foreach` with `Span<T>` avoids copies and allocations in hot paths |
-| 7 | Never mutate a collection while iterating with `foreach` — use a backward `for` loop or LINQ |
-| 8 | `yield return` lets you build custom lazy sequences with minimal code |
+| #   | Takeaway                                                                                     |
+| --- | -------------------------------------------------------------------------------------------- |
+| 1   | `foreach` is the idiomatic default — use it unless you have a reason not to                  |
+| 2   | Use `for` when you need the index or must mutate elements in place                           |
+| 3   | LINQ is expressive and lazy — but beware of multiple enumeration and allocations             |
+| 4   | `Parallel.ForEach` is for CPU-bound work — not async I/O                                     |
+| 5   | `await foreach` streams async results without buffering everything in memory                 |
+| 6   | `ref foreach` with `Span<T>` avoids copies and allocations in hot paths                      |
+| 7   | Never mutate a collection while iterating with `foreach` — use a backward `for` loop or LINQ |
+| 8   | `yield return` lets you build custom lazy sequences with minimal code                        |
 
 ---
 

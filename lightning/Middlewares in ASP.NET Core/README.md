@@ -1,6 +1,7 @@
 # Middlewares in ASP.NET Core
 
-A lightning talk exploring how the ASP.NET Core request pipeline works and how to write custom middleware.
+A lightning talk exploring how the ASP.NET Core request pipeline works and how to write custom
+middleware.
 
 ## Topics Covered
 

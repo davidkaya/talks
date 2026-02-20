@@ -1,6 +1,7 @@
 # Iterating in C#
 
-A lightning talk covering all the ways to iterate in C# — from basic `for` and `foreach` to `Span<T>`, `await foreach`, and parallel loops.
+A lightning talk covering all the ways to iterate in C# — from basic `for` and `foreach` to
+`Span<T>`, `await foreach`, and parallel loops.
 
 ## Topics Covered
 

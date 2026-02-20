@@ -30,7 +30,8 @@ transition: slide-left
 
 ## 1. What is Agentic Engineering?
 
-**Agentic Engineering** is the practice of defining goals, constraints, and quality standards for AI agents, who then **autonomously plan, create, test, and refine** software and systems.
+**Agentic Engineering** is the practice of defining goals, constraints, and quality standards for AI
+agents, who then **autonomously plan, create, test, and refine** software and systems.
 
 Instead of writing every line of code, engineers:
 
@@ -49,7 +50,9 @@ Instead of writing every line of code, engineers:
 | **Collaboration**        | Agents coordinate with each other and escalate to humans              |
 | **Layered Oversight**    | Spectrum from suggestion to full workflow execution under supervision |
 
-> 📖 Ref: [Glide — "What is Agentic Engineering?"](https://www.glideapps.com/blog/what-is-agentic-engineering) · [Kilo.ai — Agentic Engineering](https://path.kilo.ai/introduction/what-is-agentic-engineering/)
+> 📖 Ref:
+> [Glide — "What is Agentic Engineering?"](https://www.glideapps.com/blog/what-is-agentic-engineering)
+> · [Kilo.ai — Agentic Engineering](https://path.kilo.ai/introduction/what-is-agentic-engineering/)
 
 ---
 
@@ -67,9 +70,11 @@ flowchart LR
 ### Key Milestones
 
 - **2021** — GitHub Copilot technical preview (AI autocomplete enters mainstream)
-- **2024** — Andrej Karpathy coins **"Vibe Coding"** — "give in to the vibes," accept AI suggestions with minimal scrutiny
+- **2024** — Andrej Karpathy coins **"Vibe Coding"** — "give in to the vibes," accept AI suggestions
+  with minimal scrutiny
 - **2025** — Limitations of vibe coding surface — compounded bugs, chaotic codebases
-- **2025-2026** — **Agentic Engineering** emerges — from accepting suggestions to orchestrating fleets of AI agents
+- **2025-2026** — **Agentic Engineering** emerges — from accepting suggestions to orchestrating
+  fleets of AI agents
 
 ### Comparison
 
@@ -81,13 +86,17 @@ flowchart LR
 | Output     | Deterministic        | Stochastic, varied          | Goal-oriented, quality-controlled     |
 | Risk       | Human bottleneck     | Errors, lack of rigor       | Oversight, governance                 |
 
-> 📖 Ref: [Forbes — "From Vibe Coding to Agentic Engineering"](https://www.forbes.com/councils/forbestechcouncil/2025/08/21/from-vibe-coding-to-agentic-engineering-redefining-sdlc-with-one-pizza-teams/) · [Morph LLM — "The 2026 Paradigm Shift"](https://www.morphllm.com/blog/vibe-coding-to-agentic-engineering)
+> 📖 Ref:
+> [Forbes — "From Vibe Coding to Agentic Engineering"](https://www.forbes.com/councils/forbestechcouncil/2025/08/21/from-vibe-coding-to-agentic-engineering-redefining-sdlc-with-one-pizza-teams/)
+> ·
+> [Morph LLM — "The 2026 Paradigm Shift"](https://www.morphllm.com/blog/vibe-coding-to-agentic-engineering)
 
 ---
 
 ## 3. The Four Agentic Design Patterns
 
-Andrew Ng (DeepLearning.AI) identified **four foundational design patterns** that make AI agents far more capable than single-shot prompting:
+Andrew Ng (DeepLearning.AI) identified **four foundational design patterns** that make AI agents far
+more capable than single-shot prompting:
 
 ### 🔁 Pattern 1: Reflection
 
@@ -104,26 +113,32 @@ flowchart LR
 
 ### 🔧 Pattern 2: Tool Use
 
-Agents access **external tools** — APIs, databases, web search, code execution — extending beyond the LLM's built-in knowledge.
+Agents access **external tools** — APIs, databases, web search, code execution — extending beyond
+the LLM's built-in knowledge.
 
 - Research agents that search the web for up-to-date information
 - Agents that execute code, query databases, or interact with business software
 
 ### 📋 Pattern 3: Planning
 
-Decompose a complex problem into a **sequence of actionable steps**, then execute them — adjusting dynamically as new information emerges.
+Decompose a complex problem into a **sequence of actionable steps**, then execute them — adjusting
+dynamically as new information emerges.
 
 - Break a project into: requirements → design → implementation → testing
 - Dynamic replanning when intermediate steps fail
 
 ### 👥 Pattern 4: Multi-Agent Collaboration
 
-Distribute tasks among **multiple specialized agents** that interact, debate, critique, and combine their efforts.
+Distribute tasks among **multiple specialized agents** that interact, debate, critique, and combine
+their efforts.
 
 - "Planner" + "Coder" + "Reviewer" + "Integrator" agent teams
 - Debate systems where agents argue opposing sides to reach consensus
 
-> 📖 Ref: [Andrew Ng — Sequoia AI Ascent 2024](https://octetdata.com/blog/notes-andrew-ng-agentic-reasoning-2024/) · [DeepLearning.AI — Agentic AI Patterns](https://github.com/madeeha96/agentic-ai) · [Continuum Labs — Andrew Ng's presentation](https://training.continuumlabs.ai/agents/what-is-agency/andrew-ngs-presentation-on-ai-agents)
+> 📖 Ref:
+> [Andrew Ng — Sequoia AI Ascent 2024](https://octetdata.com/blog/notes-andrew-ng-agentic-reasoning-2024/)
+> · [DeepLearning.AI — Agentic AI Patterns](https://github.com/madeeha96/agentic-ai) ·
+> [Continuum Labs — Andrew Ng's presentation](https://training.continuumlabs.ai/agents/what-is-agency/andrew-ngs-presentation-on-ai-agents)
 
 ---
 
@@ -158,13 +173,16 @@ Agents are **not fully autonomous**. They operate within defined boundaries:
 - What actions require human approval
 - When to escalate vs. proceed independently
 
-> 📖 Ref: [Google Cloud — "What is Agentic AI?"](https://cloud.google.com/discover/what-is-agentic-ai) · [arxiv — "Agentic Software Engineering: Foundational Pillars"](https://arxiv.org/pdf/2509.06216)
+> 📖 Ref:
+> [Google Cloud — "What is Agentic AI?"](https://cloud.google.com/discover/what-is-agentic-ai) ·
+> [arxiv — "Agentic Software Engineering: Foundational Pillars"](https://arxiv.org/pdf/2509.06216)
 
 ---
 
 ## 5. Agentic Coding Tools Landscape
 
-The tools we use to write software are becoming **agentic** — moving from autocomplete to autonomous coding:
+The tools we use to write software are becoming **agentic** — moving from autocomplete to autonomous
+coding:
 
 | Tool                     | Best For          | Standout Feature                              | Autonomy  |
 | ------------------------ | ----------------- | --------------------------------------------- | --------- |
@@ -185,7 +203,9 @@ Unlike traditional autocomplete, these tools can:
 - ✅ **Use tools** — terminal, browser, file system
 - ✅ **Reflect** — evaluate their output and improve it
 
-> 📖 Ref: [aistatus.org — "Best Agentic Coding Tools"](https://aistatus.org/best-agentic-coding-tools) · [aiagents.bot — "Best AI Coding Assistants"](https://aiagents.bot/blog/best-ai-coding-assistants-2025)
+> 📖 Ref:
+> [aistatus.org — "Best Agentic Coding Tools"](https://aistatus.org/best-agentic-coding-tools) ·
+> [aiagents.bot — "Best AI Coding Assistants"](https://aiagents.bot/blog/best-ai-coding-assistants-2025)
 
 ---
 
@@ -227,7 +247,9 @@ Four major frameworks dominate the agentic AI space:
 | **CrewAI**          | Role-based teams           | Structured collaboration      | Easy           |
 | **Semantic Kernel** | Plugin/skill-based         | Enterprise integration        | Moderate       |
 
-> 📖 Ref: [Turing — "AI Agent Frameworks"](https://www.turing.com/resources/ai-agent-frameworks) · [arxiv — "Agentic AI Frameworks: Architectures, Protocols"](https://arxiv.org/html/2508.10146v1) · [mem0.ai — "Agentic Frameworks Guide"](https://mem0.ai/blog/agentic-frameworks-ai-agents)
+> 📖 Ref: [Turing — "AI Agent Frameworks"](https://www.turing.com/resources/ai-agent-frameworks) ·
+> [arxiv — "Agentic AI Frameworks: Architectures, Protocols"](https://arxiv.org/html/2508.10146v1) ·
+> [mem0.ai — "Agentic Frameworks Guide"](https://mem0.ai/blog/agentic-frameworks-ai-agents)
 
 ---
 
@@ -273,7 +295,12 @@ flowchart LR
 | **Analogy**  | USB port (connect peripherals)                                            | Network protocol (connect computers)     |
 | **Together** | MCP enriches each agent's capabilities; A2A lets those agents collaborate |
 
-> 📖 Ref: [Anthropic — "Introducing the Model Context Protocol"](https://www.anthropic.com/news/model-context-protocol) · [Google Developers Blog — "Announcing A2A"](https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/) · [Galileo — "A2A Protocol Explained"](https://galileo.ai/blog/google-agent2agent-a2a-protocol-guide)
+> 📖 Ref:
+> [Anthropic — "Introducing the Model Context Protocol"](https://www.anthropic.com/news/model-context-protocol)
+> ·
+> [Google Developers Blog — "Announcing A2A"](https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/)
+> ·
+> [Galileo — "A2A Protocol Explained"](https://galileo.ai/blog/google-agent2agent-a2a-protocol-guide)
 
 ---
 
@@ -314,7 +341,11 @@ flowchart LR
 - Address risks throughout the **entire lifecycle**: development, training, deployment, operation
 - Not just during initial deployment
 
-> 📖 Ref: [MIT Technology Review — "From Guardrails to Governance"](https://www.technologyreview.com/2026/02/04/1131014/from-guardrails-to-governance-a-ceos-guide-for-securing-agentic-systems/) · [McKinsey — "Deploying Agentic AI with Safety and Security"](https://www.mckinsey.com/capabilities/risk-and-resilience/our-insights/deploying-agentic-ai-with-safety-and-security-a-playbook-for-technology-leaders) · [IBM — Agentic AI Security Guide](https://www.ibm.com/think/insights/agentic-ai-security)
+> 📖 Ref:
+> [MIT Technology Review — "From Guardrails to Governance"](https://www.technologyreview.com/2026/02/04/1131014/from-guardrails-to-governance-a-ceos-guide-for-securing-agentic-systems/)
+> ·
+> [McKinsey — "Deploying Agentic AI with Safety and Security"](https://www.mckinsey.com/capabilities/risk-and-resilience/our-insights/deploying-agentic-ai-with-safety-and-security-a-playbook-for-technology-leaders)
+> · [IBM — Agentic AI Security Guide](https://www.ibm.com/think/insights/agentic-ai-security)
 
 ---
 
@@ -350,7 +381,14 @@ flowchart LR
 - No clear inventories of deployed agents and their privileges
 - OWASP released **Top 10 Risks for Agentic AI** in December 2025
 
-> 📖 Ref: [MIT Sloan — "Agentic AI, explained"](https://mitsloan.mit.edu/ideas-made-to-matter/agentic-ai-explained) · [Deloitte — "Agentic AI Orchestration & Governance"](https://www.deloitte.com/us/en/what-we-do/capabilities/applied-artificial-intelligence/articles/agentic-ai-orchestration-governance.html) · [OWASP — "Top 10 Risks for Agentic AI"](https://genai.owasp.org/2025/12/09/owasp-genai-security-project-releases-top-10-risks-and-mitigations-for-agentic-ai-security/) · [IAPP — "AI Governance in the Agentic Era"](https://iapp.org/resources/article/ai-governance-in-the-agentic-era)
+> 📖 Ref:
+> [MIT Sloan — "Agentic AI, explained"](https://mitsloan.mit.edu/ideas-made-to-matter/agentic-ai-explained)
+> ·
+> [Deloitte — "Agentic AI Orchestration & Governance"](https://www.deloitte.com/us/en/what-we-do/capabilities/applied-artificial-intelligence/articles/agentic-ai-orchestration-governance.html)
+> ·
+> [OWASP — "Top 10 Risks for Agentic AI"](https://genai.owasp.org/2025/12/09/owasp-genai-security-project-releases-top-10-risks-and-mitigations-for-agentic-ai-security/)
+> ·
+> [IAPP — "AI Governance in the Agentic Era"](https://iapp.org/resources/article/ai-governance-in-the-agentic-era)
 
 ---
 
@@ -387,7 +425,8 @@ flowchart LR
 - Humans set strategy, agents execute
 - **The engineer who can effectively orchestrate AI agents will be 10x more productive**
 
-> 📖 Ref: [Forbes — "From Vibe Coding to Agentic Engineering: Redefining SDLC"](https://www.forbes.com/councils/forbestechcouncil/2025/08/21/from-vibe-coding-to-agentic-engineering-redefining-sdlc-with-one-pizza-teams/)
+> 📖 Ref:
+> [Forbes — "From Vibe Coding to Agentic Engineering: Redefining SDLC"](https://www.forbes.com/councils/forbestechcouncil/2025/08/21/from-vibe-coding-to-agentic-engineering-redefining-sdlc-with-one-pizza-teams/)
 
 ---
 
@@ -441,26 +480,42 @@ dotnet run
 ## Resources
 
 ### Articles & Reports
-- 📖 [MIT Sloan — "Agentic AI, explained"](https://mitsloan.mit.edu/ideas-made-to-matter/agentic-ai-explained)
-- 📖 [McKinsey — "Deploying Agentic AI with Safety and Security"](https://www.mckinsey.com/capabilities/risk-and-resilience/our-insights/deploying-agentic-ai-with-safety-and-security-a-playbook-for-technology-leaders)
-- 📖 [Forbes — "From Vibe Coding to Agentic Engineering"](https://www.forbes.com/councils/forbestechcouncil/2025/08/21/from-vibe-coding-to-agentic-engineering-redefining-sdlc-with-one-pizza-teams/)
-- 📖 [Glide — "What is Agentic Engineering?"](https://www.glideapps.com/blog/what-is-agentic-engineering)
+
+- 📖
+  [MIT Sloan — "Agentic AI, explained"](https://mitsloan.mit.edu/ideas-made-to-matter/agentic-ai-explained)
+- 📖
+  [McKinsey — "Deploying Agentic AI with Safety and Security"](https://www.mckinsey.com/capabilities/risk-and-resilience/our-insights/deploying-agentic-ai-with-safety-and-security-a-playbook-for-technology-leaders)
+- 📖
+  [Forbes — "From Vibe Coding to Agentic Engineering"](https://www.forbes.com/councils/forbestechcouncil/2025/08/21/from-vibe-coding-to-agentic-engineering-redefining-sdlc-with-one-pizza-teams/)
+- 📖
+  [Glide — "What is Agentic Engineering?"](https://www.glideapps.com/blog/what-is-agentic-engineering)
 - 📖 [IBM — Agentic AI Security Guide](https://www.ibm.com/think/insights/agentic-ai-security)
 
 ### Academic Papers
-- 📄 [arxiv — "Agentic Software Engineering: Foundational Pillars and a Research Roadmap"](https://arxiv.org/pdf/2509.06216)
-- 📄 [Springer — "Agentic AI: a comprehensive survey of architectures"](https://link.springer.com/article/10.1007/s10462-025-11422-4)
-- 📄 [arxiv — "Agentic AI Frameworks: Architectures, Protocols, and Design Challenges"](https://arxiv.org/html/2508.10146v1)
+
+- 📄
+  [arxiv — "Agentic Software Engineering: Foundational Pillars and a Research Roadmap"](https://arxiv.org/pdf/2509.06216)
+- 📄
+  [Springer — "Agentic AI: a comprehensive survey of architectures"](https://link.springer.com/article/10.1007/s10462-025-11422-4)
+- 📄
+  [arxiv — "Agentic AI Frameworks: Architectures, Protocols, and Design Challenges"](https://arxiv.org/html/2508.10146v1)
 
 ### Protocols & Frameworks
-- 🔗 [Anthropic — Model Context Protocol (MCP)](https://www.anthropic.com/news/model-context-protocol)
-- 🔗 [Google — Agent-to-Agent Protocol (A2A)](https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/)
+
+- 🔗
+  [Anthropic — Model Context Protocol (MCP)](https://www.anthropic.com/news/model-context-protocol)
+- 🔗
+  [Google — Agent-to-Agent Protocol (A2A)](https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/)
 - 🔗 [Microsoft — Semantic Kernel](https://learn.microsoft.com/en-us/semantic-kernel/overview/)
-- 🔗 [OWASP — Top 10 Risks for Agentic AI](https://genai.owasp.org/2025/12/09/owasp-genai-security-project-releases-top-10-risks-and-mitigations-for-agentic-ai-security/)
+- 🔗
+  [OWASP — Top 10 Risks for Agentic AI](https://genai.owasp.org/2025/12/09/owasp-genai-security-project-releases-top-10-risks-and-mitigations-for-agentic-ai-security/)
 
 ### Talks & Courses
-- 🎥 [Andrew Ng — Sequoia AI Ascent 2024: Agentic Reasoning](https://octetdata.com/blog/notes-andrew-ng-agentic-reasoning-2024/)
+
+- 🎥
+  [Andrew Ng — Sequoia AI Ascent 2024: Agentic Reasoning](https://octetdata.com/blog/notes-andrew-ng-agentic-reasoning-2024/)
 - 🎓 [DeepLearning.AI — Agentic AI Patterns Course](https://github.com/madeeha96/agentic-ai)
 
 ### Demo
+
 - 🔧 [Demo Project → `./demo/AgenticDemo`](./demo/AgenticDemo/)
