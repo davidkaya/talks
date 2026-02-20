@@ -17,6 +17,16 @@ Short, focused talks — 5 to 15 minutes.
 
 ---
 
+## 📢 Standard Talks
+
+Deeper talks — 30 to 45 minutes.
+
+| Talk | Description | Stack |
+|------|-------------|-------|
+| [Agentic Engineering](standard/Agentic%20Engineering/presentation.md) | How software engineering is evolving from writing code to orchestrating AI agents — design patterns, frameworks, protocols (MCP & A2A), tools, and best practices | AI / .NET / Semantic Kernel |
+
+---
+
 ## 📁 Repository Structure
 
 ```
