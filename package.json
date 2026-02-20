@@ -1,0 +1,21 @@
+{
+  "name": "talks",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A collection of technical talks, presentations, and live-coding demos",
+  "scripts": {
+    "slides:middlewares": "slidev \"lightning/Middlewares in ASP.NET Core/presentation.md\"",
+    "slides:iterating": "slidev \"lightning/Iterating in C#/presentation.md\"",
+    "slides:agentic": "slidev \"standard/Agentic Engineering/presentation.md\"",
+    "build:middlewares": "slidev build \"lightning/Middlewares in ASP.NET Core/presentation.md\"",
+    "build:iterating": "slidev build \"lightning/Iterating in C#/presentation.md\"",
+    "build:agentic": "slidev build \"standard/Agentic Engineering/presentation.md\"",
+    "export:middlewares": "slidev export \"lightning/Middlewares in ASP.NET Core/presentation.md\"",
+    "export:iterating": "slidev export \"lightning/Iterating in C#/presentation.md\"",
+    "export:agentic": "slidev export \"standard/Agentic Engineering/presentation.md\""
+  },
+  "devDependencies": {
+    "@slidev/cli": "^0.49.29",
+    "@slidev/theme-default": "latest"
+  }
+}

@@ -421,3 +421,11 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# Slidev
+components.d.ts
+dist/
+.slidev/
+
+# npm (use bun instead)
+package-lock.json
