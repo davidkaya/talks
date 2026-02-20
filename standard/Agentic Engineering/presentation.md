@@ -97,10 +97,6 @@ flowchart LR
 
 ---
 
----
-
-## layout: section
-
 ## 3. The Four Agentic Design Patterns
 
 Andrew Ng (DeepLearning.AI) identified **four foundational design patterns** that make AI agents far
@@ -229,10 +225,6 @@ Unlike traditional autocomplete, these tools can:
 
 ---
 
----
-
-## layout: section
-
 ## 6. Agentic Frameworks for Developers
 
 Four major frameworks dominate the agentic AI space.
@@ -286,10 +278,6 @@ Four major frameworks dominate the agentic AI space.
 > [mem0.ai — "Agentic Frameworks Guide"](https://mem0.ai/blog/agentic-frameworks-ai-agents)
 
 ---
-
----
-
-## layout: section
 
 ## 7. The Protocols: MCP and A2A
 
