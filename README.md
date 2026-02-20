@@ -40,6 +40,15 @@ Deeper talks — 30 to 45 minutes.
 
 ---
 
+## 🛠️ Prerequisites
+
+| Tool                                     | Purpose                      | Install                                          |
+| ---------------------------------------- | ---------------------------- | ------------------------------------------------ |
+| [Bun](https://bun.sh)                    | JS package manager & runtime | `curl -fsSL https://bun.sh/install \| bash`      |
+| [.NET SDK](https://dotnet.microsoft.com) | Build & run demo projects    | [Download](https://dotnet.microsoft.com/download) |
+
+---
+
 ## 🖥️ Running a Presentation
 
 Presentations use [Slidev](https://sli.dev). Install dependencies once with [Bun](https://bun.sh),

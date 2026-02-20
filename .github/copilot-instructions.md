@@ -139,10 +139,7 @@ Every presentation should follow this outline:
 - Use **bold** for emphasis on key terms on first introduction
 - Use `inline code` for type names, method names, and technical identifiers
 - **Always format Markdown files** before committing — run `bun run format` (Prettier) to ensure
-  consistent formatting. The VS Code workspace is configured to format on save automatically. The
-  Copilot CLI LSP is configured via `.github/lsp.json` to use
-  [marksman](https://github.com/artempyanykh/marksman) for Markdown code intelligence (completions,
-  diagnostics, go-to-definition, broken link detection).
+  consistent formatting. The VS Code workspace is configured to format on save automatically.
 
 ---
 
