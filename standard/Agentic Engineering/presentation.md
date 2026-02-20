@@ -64,9 +64,9 @@ The way we build software has been transforming rapidly:
 
 ```mermaid
 flowchart LR
-    A["🖥️ Traditional<br>Coding<br>2020-2022"] --> B["🤖 AI-Assisted<br>Coding<br>2023"]
-    B --> C["🎵 Vibe Coding<br>(Karpathy)<br>2024"]
-    C --> D["⚙️ Agentic<br>Engineering<br>2025-2026"]
+    A["🖥️ Traditional<br>Coding"] --> B["🤖 AI-Assisted<br>Coding"]
+    B --> C["🎵 Vibe<br>Coding"]
+    C --> D["⚙️ Agentic<br>Engineering"]
 ```
 
 ### Key Milestones
