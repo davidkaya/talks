@@ -2,7 +2,7 @@
 
 A collection of technical talks, presentations, and live-coding demos.
 
-Each talk includes a **Markdown-based slide deck** (compatible with [Marp](https://marp.app) / [Slidev](https://sli.dev)) and a **self-contained demo project** you can clone and run.
+Each talk includes a **Markdown-based slide deck** powered by [Slidev](https://sli.dev) and a **self-contained demo project** you can clone and run.
 
 ---
 
@@ -32,9 +32,32 @@ Deeper talks — 30 to 45 minutes.
 ```
 <category>/
   <Talk Name>/
-    presentation.md      ← Slide content (Markdown)
+    presentation.md      ← Slidev slide deck (Markdown + YAML frontmatter)
     demo/
       <ProjectName>/     ← Runnable demo project
+```
+
+---
+
+## 🖥️ Running a Presentation
+
+Presentations use [Slidev](https://sli.dev). Install dependencies once with [Bun](https://bun.sh), then run any talk:
+
+```bash
+bun install
+```
+
+| Command | Talk |
+|---------|------|
+| `bun run slides:middlewares` | Middlewares in ASP.NET Core |
+| `bun run slides:iterating` | Iterating in C# |
+| `bun run slides:agentic` | Agentic Engineering |
+
+You can also build a static SPA or export to PDF:
+
+```bash
+bun run build:middlewares    # Static SPA → dist/
+bun run export:middlewares   # PDF export
 ```
 
 ---
