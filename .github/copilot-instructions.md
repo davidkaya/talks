@@ -31,11 +31,11 @@ When new categories are needed (e.g., `conference/`, `workshop/`, `meetup/`), fo
 
 | Tool | Purpose |
 |------|---------|
-| [Bun](https://bun.sh) | JavaScript package manager and runtime — use `bun install`, `bun run <script>` |
+| [Bun](https://bun.sh) | JavaScript package manager and runtime — use `bun install`, `bun run <script>`, `bunx <command>` |
 | [Slidev](https://sli.dev) | Markdown-to-slides presentation framework |
 | [.NET SDK](https://dotnet.microsoft.com) | Build and run demo projects |
 
-> ⚠️ Always use **bun** (not npm/yarn/pnpm) for managing JavaScript dependencies in this repository.
+> ⚠️ Always use **bun** / **bunx** (not npm/npx/yarn/pnpm) for managing JavaScript dependencies and running scripts in this repository.
 
 ---
 
@@ -118,7 +118,7 @@ Every presentation should follow this outline:
   - 💡 for key insights and tips
   - ⭐ for highlighted/recommended approaches
 - **Use tables** for comparisons, summaries, and quick-reference information
-- **Use ASCII diagrams** for architecture and flow visualization (no external image dependencies)
+- **Use Mermaid diagrams** (` ```mermaid `) for architecture, flow, and sequence visualization — Slidev renders them natively. **Do not use ASCII box-drawing diagrams** (they break in Slidev's code font rendering)
 - **Include "Common Pitfalls" and "Best Practices" sections** — audiences love practical do's and don'ts
 - **End with a numbered Key Takeaways table** (columns: `#`, `Takeaway`)
 - **Separate slides/sections with `---`** (horizontal rules)
